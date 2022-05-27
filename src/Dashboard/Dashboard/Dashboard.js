@@ -17,7 +17,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import './Dashboard.css'
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 
 const drawerWidth = 200;
@@ -37,6 +37,11 @@ function Dashboard(props) {
       <Box className='text-area'>
       <List>
           <Link to='/'>Home</Link>
+
+
+
+
+          <Link to='/dashboard/login'> {""} login</Link>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
@@ -131,6 +136,7 @@ function Dashboard(props) {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           
         </Typography>
+        <Outlet></Outlet>
         
       </Box>
     </Box>

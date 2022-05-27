@@ -23,6 +23,16 @@ function App() {
       <Route path="/home" element={<Home></Home>}></Route>
       <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
       <Route path="/login" element={<Login></Login>}></Route>
+      
+       {/* dashboard a route goal akahne */}
+      <Route path="/dashboard"
+                element={<Dashboard></Dashboard>}
+            >
+              <Route path="login" element={<Login></Login>}></Route>
+       </Route>
+
+
+
       <Route path="/register" element={<Register></Register>}></Route>
      
     </Routes>

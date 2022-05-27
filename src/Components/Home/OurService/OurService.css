@@ -1,0 +1,32 @@
+.span-color{
+    color: rgb(219, 43, 152);
+    
+}
+.our-service{
+    margin-top: 35px;
+    
+   
+}
+/* .our-service{
+    margin-top: 40px;
+} */
+.our-service img{
+    width: 50PX;
+    margin-top: 25px;
+}
+.box:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 235px;
+    margin: 8px;
+   
+}
+.box{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 235px;
+    margin: 15px;
+  
+    
+}
+.our-service2{
+    margin-right: 0px;
+}

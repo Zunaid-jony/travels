@@ -1,0 +1,22 @@
+.span-color{
+    color: rgb(219, 43, 152);
+    
+}
+
+/* .our-service{
+    margin-top: 40px;
+} */
+.testimonials img{
+    width: 50PX;
+    margin-top: 8px;
+}
+
+
+.testimonials{
+    margin-right: 1px;
+   
+    margin-top: 20px;
+}
+.tes-body{
+    margin-right: 0px;
+}

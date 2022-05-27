@@ -1,0 +1,22 @@
+.naver-area Button{
+    background-color: rgb(226, 31, 145);
+   color: white;
+   border-color: rgb(180, 128, 158);
+   border-radius: 6px;
+    height: 30px;
+    width: 75px;
+    text-align: center;
+   
+
+}
+.header{
+    text-decoration: none;
+    color: gray;
+    
+   
+
+}
+.naver-area{
+    margin-top: 10px;
+
+}

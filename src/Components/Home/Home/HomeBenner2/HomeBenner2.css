@@ -1,0 +1,20 @@
+.Banner-imgs img{
+    width: 80%;
+    margin-top: 50px;
+    border-radius: 7px;
+    margin-bottom: 40px;
+}
+.bennar-texs{
+    margin-top: 115px;
+    text-align: left;
+    color: #0C090A;
+    margin-top: 70px;
+   
+    
+}
+.Banner-imgs{
+    background-color: rgb(247, 228, 244);
+    margin-top: 30px;
+    height: 330px;
+    
+}

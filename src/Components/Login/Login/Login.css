@@ -1,0 +1,19 @@
+.login-area{
+    
+    background-image: url('../../../imgs/login1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+     height: 600px;
+  
+  
+}
+.login-heder{
+  background-color: rgb(163, 158, 158);
+  
+  margin-right: 30px;
+  margin-left: 460px;
+  margin-right: 460px;
+  height: 390px;
+  border-radius: 8px;
+
+}

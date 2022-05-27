@@ -1,0 +1,19 @@
+.login-areaa{
+    
+    background-image: url('../../../imgs/registarin1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+     height: 575px;
+  
+  
+}
+.login-hederr{
+  background-color: rgb(163, 158, 158);
+  
+  margin-right: 30px;
+  margin-left: 460px;
+  margin-right: 460px;
+  height: 480px;
+  border-radius: 8px;
+
+}

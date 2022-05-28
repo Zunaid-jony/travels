@@ -1,5 +1,5 @@
 .site-bar{
-    background-color: rgb(221, 71, 164);
+    background-image: linear-gradient(to right, rgb(95, 13, 116) , rgba(21, 33, 207, 0.842));
     height: 680px;
 }
 .text-area{

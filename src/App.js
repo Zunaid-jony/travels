@@ -9,6 +9,7 @@ import Home from "./Components/Home/Home";
 import Dashboard from "./Dashboard/Dashboard/Dashboard";
 import Login from './Components/Login/Login/Login';
 import Register from "./Components/Login/Register/Register";
+import Service from "./Components/Home/Service/Service";
 
 
 
@@ -20,6 +21,7 @@ function App() {
 
     <Routes>
       <Route path="/" element={<Home></Home>}></Route>
+      <Route path="/service" element={<Service></Service>}></Route>
       <Route path="/home" element={<Home></Home>}></Route>
       <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
       <Route path="/login" element={<Login></Login>}></Route>

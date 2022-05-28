@@ -17,7 +17,7 @@ const Navigation = () => {
                 <Nav>
                 
                 <Nav.Link ><Link className='header' to='/'>Home</Link></Nav.Link>
-                <Nav.Link ><Link className='header' to='/outTem'>Our Team</Link></Nav.Link>
+                <Nav.Link ><Link className='header' to='/service'>Service</Link></Nav.Link>
                 <Nav.Link ><Link className='header' to='/contact'>Contact Us</Link></Nav.Link>
                 <Nav.Link ><Link className='header' to='/dashboard'>Dashboard</Link></Nav.Link>
                 <Nav.Link ><Link className='header' to='/login'><button bg="info"> Login</button> </Link></Nav.Link>

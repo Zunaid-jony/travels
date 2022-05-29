@@ -36,12 +36,12 @@ function Dashboard(props) {
      
       <Box className='text-area'>
       <List>
-          <Link to='/'>Home</Link>
+          <Link style={{textDecoration: 'none', color:'white',textAlign: 'left'}} to='/'>Home</Link>
+
+             <br></br>
 
 
-
-
-          <Link to='/dashboard/login'> {""} login</Link>
+          <Link style={{textDecoration: 'none',color:'white'}} to='/dashboard/login'> {""} login</Link>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>

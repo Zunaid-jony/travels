@@ -6,14 +6,17 @@ import './Register.css'
 
 import { Link } from 'react-router-dom';
 import useAuth from './../../../hooks/useAuth';
+import { CircularProgress } from '@mui/material';
 
 
 const Register = () => {
    const [loginData,setLoginData]= useState({})
+   // spinar set karbo
+  
 
 
 //    ***********start *********
-  const {registerUser}= useAuth();
+  const {registerUser, isLoading}= useAuth();
 //    ***********start *********
 
    const handleOnChange = e =>{
@@ -43,63 +46,68 @@ const Register = () => {
            <div className='login-hederr'>
            <h2>Register</h2>
             <br></br>
-           <form onSubmit={handleLoginSubmit}>
-           <TextField 
-                sx={{width: '70%', m: 1}}
-                name='name'
-                onChange={handleOnChange}
-              
-                id="standard-basic" 
-                label="Your Name"
-                variant="standard" />
-           
+          { !isLoading &&
 
-           <TextField 
-                sx={{width: '70%', m: 1}}
-                name='email'
-                onChange={handleOnChange}
-                // onBlur={handleOnBlur}
-                type='email'
-                id="standard-basic" 
-               
-                label="Your Email"
-                variant="standard" />
-        <br></br>
-        <TextField 
-               sx={{width: '70%', m: 1}}
-               name='password'
-               onChange={handleOnChange}
-            //    onBlur={handleOnBlur}
-                id="standard-basic" 
-                label="Your Password"
-                type='password'
-                variant="standard" />
-          <TextField 
-               sx={{width: '70%', m: 1}}
-               name='password2'
-               onChange={handleOnChange}
-            //    onBlur={handleOnBlur}
-                id="standard-basic" 
-                label=" ReType-password"
-                type='password'
-                variant="standard" />
-        <br></br>
-        <Button
-                variant="contained"
-                
-                 sx={{width: '70%', m: 2}}
-                 style={{backgroundColor:'rgb(202, 74, 153)'}}
-                 type='submit'
+                    <form onSubmit={handleLoginSubmit}>
+                    <TextField 
+                        sx={{width: '70%', m: 1}}
+                        name='name'
+                        onChange={handleOnChange}
+                    
+                        id="standard-basic" 
+                        label="Your Name"
+                        variant="standard" />
 
-         >Register</Button>
 
-                <br></br>
-               
-                <h6>OR</h6>
- 
-       
-          <p>Already have a account?<Link to='/login'>Login</Link></p>
-           </form>
+                    <TextField 
+                        sx={{width: '70%', m: 1}}
+                        name='email'
+                        onChange={handleOnChange}
+                        // onBlur={handleOnBlur}
+                        type='email'
+                        id="standard-basic" 
+                        
+                        label="Your Email"
+                        variant="standard" />
+                    <br></br>
+                    <TextField 
+                        sx={{width: '70%', m: 1}}
+                        name='password'
+                        onChange={handleOnChange}
+                    //    onBlur={handleOnBlur}
+                        id="standard-basic" 
+                        label="Your Password"
+                        type='password'
+                        variant="standard" />
+                    <TextField 
+                        sx={{width: '70%', m: 1}}
+                        name='password2'
+                        onChange={handleOnChange}
+                    //    onBlur={handleOnBlur}
+                        id="standard-basic" 
+                        label=" ReType-password"
+                        type='password'
+                        variant="standard" />
+                    <br></br>
+                    <Button
+                        variant="contained"
+                        
+                        sx={{width: '70%', m: 2}}
+                        style={{backgroundColor:'rgb(202, 74, 153)'}}
+                        type='submit'
+
+                    >Register</Button>
+
+                        <br></br>
+                        
+                        <h6>OR</h6>
+
+
+                    <p>Already have a account?<Link state={{textDecoration:'none'}} to='/login'>Login</Link></p>
+                    </form>
+          }
+
+          {isLoading && <CircularProgress></CircularProgress>}
            </div>
         </div>
     );

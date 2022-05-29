@@ -10,12 +10,14 @@ import Dashboard from "./Dashboard/Dashboard/Dashboard";
 import Login from './Components/Login/Login/Login';
 import Register from "./Components/Login/Register/Register";
 import Service from "./Components/Home/Service/Service";
+import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 
 
 
 function App() {
   return (
     <div className="App">
+  <AuthProvider>
     <BrowserRouter>
      <Navigation></Navigation>
 
@@ -39,6 +41,7 @@ function App() {
      
     </Routes>
     </BrowserRouter>
+    </AuthProvider>
     </div>
   );
 }

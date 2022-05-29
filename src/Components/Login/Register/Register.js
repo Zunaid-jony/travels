@@ -5,16 +5,23 @@ import Button from '@mui/material/Button';
 import './Register.css'
 
 import { Link } from 'react-router-dom';
+import useAuth from './../../../hooks/useAuth';
 
 
 const Register = () => {
    const [loginData,setLoginData]= useState({})
 
+
+//    ***********start *********
+  const {registerUser}= useAuth();
+//    ***********start *********
+
    const handleOnChange = e =>{
        const field = e.target.name;
        const value = e.target.value;
        const newLoginData ={...loginData};
-       newLoginData [field] = value;
+       newLoginData[field] = value;
+       console.log(field,value, newLoginData)
        setLoginData(newLoginData);
 
    }
@@ -25,7 +32,7 @@ const Register = () => {
             return
 
         }
-        alert('ok')
+        registerUser(loginData.email, loginData.password , loginData.name)
         e.preventDefault();
       }
     return (
@@ -34,7 +41,7 @@ const Register = () => {
            <br></br>
            <br></br>
            <div className='login-hederr'>
-           <h2>Login</h2>
+           <h2>Register</h2>
             <br></br>
            <form onSubmit={handleLoginSubmit}>
            <TextField 
@@ -79,6 +86,7 @@ const Register = () => {
         <br></br>
         <Button
                 variant="contained"
+                
                  sx={{width: '70%', m: 2}}
                  style={{backgroundColor:'rgb(202, 74, 153)'}}
                  type='submit'

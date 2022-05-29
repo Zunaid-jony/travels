@@ -8,18 +8,20 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
  const [loginData, setLoginData] = useState()
+
   const handleOnChange =e =>{
     const field = e.target.name;
     const value = e.target.value;
    const newLoginData = {...loginData};   
    newLoginData[field]=value;
+   
    setLoginData(newLoginData);
 
   }
  
   const handleLoginSubmit = e =>{
     alert('hell')
-    e.preventDefault();
+      
   }
   return (
     <div className="login-area">

@@ -4,10 +4,17 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "./Login.css";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link , useLocation , useNavigate} from "react-router-dom";
+import useAuth from './../../../hooks/useAuth';
+import { Alert, CircularProgress } from "@mui/material";
+
 
 const Login = () => {
- const [loginData, setLoginData] = useState()
+ const [loginData, setLoginData] = useState({})
+ const {user, loginUser, isLoading}= useAuth()
+
+ let location = useLocation();
+ const history = useNavigate();
 
   const handleOnChange =e =>{
     const field = e.target.name;
@@ -16,11 +23,14 @@ const Login = () => {
    newLoginData[field]=value;
    
    setLoginData(newLoginData);
+   loginUser(loginData.email, loginData.password)
 
   }
  
   const handleLoginSubmit = e =>{
-    alert('hell')
+    loginUser(loginData.email, loginData.password,location,history);
+    // alert('hell')
+    e.preventDefault()
       
   }
   return (
@@ -32,7 +42,8 @@ const Login = () => {
         <h2>Login</h2>
         <br></br>
 
-        <form onSubmit={handleLoginSubmit}>
+       
+          <form onSubmit={handleLoginSubmit}>
           <TextField
             sx={{ m: 1, width: "70%" }}
             required
@@ -79,7 +90,16 @@ const Login = () => {
           <p>
             Don'n have an account?<Link to="/register">Create an account</Link>
           </p>
-        </form>
+          
+        </form>   
+           
+        
+         {isLoading && <CircularProgress></CircularProgress>}
+
+{
+    user?.email && <Alert severity="success">This is a success alert — check it out!</Alert>
+}
+    
       </div>
     </div>
   );

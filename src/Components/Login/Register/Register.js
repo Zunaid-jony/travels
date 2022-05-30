@@ -3,20 +3,22 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import './Register.css'
+import { Link , useLocation , useNavigate} from "react-router-dom";
 
-import { Link } from 'react-router-dom';
 import useAuth from './../../../hooks/useAuth';
-import { CircularProgress } from '@mui/material';
+import {  CircularProgress } from '@mui/material';
+import Alert from '@mui/material/Alert';
 
 
 const Register = () => {
    const [loginData,setLoginData]= useState({})
    // spinar set karbo
   
-
+   let location = useLocation()
+   const history = useNavigate()
 
 //    ***********start *********
-  const {registerUser, isLoading}= useAuth();
+  const {user,registerUser, isLoading}= useAuth();
 //    ***********start *********
 
    const handleOnChange = e =>{
@@ -35,7 +37,7 @@ const Register = () => {
             return
 
         }
-        registerUser(loginData.email, loginData.password , loginData.name)
+        registerUser(loginData.email, loginData.password , loginData.name,history, location)
         e.preventDefault();
       }
     return (
@@ -107,7 +109,12 @@ const Register = () => {
                     </form>
           }
 
-          {isLoading && <CircularProgress></CircularProgress>}
+                        {isLoading && <CircularProgress></CircularProgress>}
+
+                        {
+                            user?.email && <Alert severity="success">This is a success alert — check it out!</Alert>
+                        }
+                    
            </div>
         </div>
     );

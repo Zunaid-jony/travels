@@ -1,7 +1,7 @@
 
 import initializeFirebase from './../Components/Login/Firebase/firebase.init';
 import { useState,useEffect } from 'react';
-import { getAuth, createUserWithEmailAndPassword,signOut,onAuthStateChanged ,signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,signOut,onAuthStateChanged, signInWithPopup ,signInWithEmailAndPassword,GoogleAuthProvider } from "firebase/auth";
 
 
 initializeFirebase();
@@ -11,7 +11,8 @@ const useFirebase =() =>{
     const [isLoading, setIsLoading] = useState(true)
 
     const auth =getAuth();
-
+    const googleprovider = new GoogleAuthProvider();
+// Register user *****************************
     const registerUser = (email, password,location, history) =>{
       setIsLoading(true)
         createUserWithEmailAndPassword(auth,email,password)
@@ -49,6 +50,24 @@ const useFirebase =() =>{
     const errorMessage = error.message;
   });
     }
+    //*************google  */
+    const signInWithGoogle =(location,history) =>{
+      setIsLoading(true)
+      signInWithPopup(auth, googleprovider )
+      .then((result) => {
+        const destination = location?.state?.from || '/';
+      history(destination, {replace: true});
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        
+        const user = result.user;
+        // ...
+      }).catch((error) => {
+       
+        const errorMessage = error.message;
+      })
+      .finally(()=> setIsLoading(false));
+    }
+
 
     //******************************************************* */
     // starte changes objerb kare
@@ -82,6 +101,7 @@ useEffect(()=>{
         registerUser,
         logout,
         loginUser,
+        signInWithGoogle,
     }
 
 }

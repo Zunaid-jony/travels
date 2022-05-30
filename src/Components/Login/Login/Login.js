@@ -11,7 +11,7 @@ import { Alert, CircularProgress } from "@mui/material";
 
 const Login = () => {
  const [loginData, setLoginData] = useState({})
- const {user, loginUser, isLoading}= useAuth()
+ const {user, loginUser, isLoading,signInWithGoogle}= useAuth()
 
  let location = useLocation();
  const history = useNavigate();
@@ -32,6 +32,9 @@ const Login = () => {
     // alert('hell')
     e.preventDefault()
       
+  }
+  const handleLoginGoogle =() =>{
+   signInWithGoogle(location, history)
   }
   return (
     <div className="login-area">
@@ -79,6 +82,7 @@ const Login = () => {
           <h6>OR</h6>
 
           <Button
+          onClick={handleLoginGoogle }
             variant="contained"
             sx={{ width: "70%", m: 2 }}
             style={{}}

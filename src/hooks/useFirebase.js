@@ -13,9 +13,9 @@ const useFirebase =() =>{
     const auth =getAuth();
     const googleprovider = new GoogleAuthProvider();
 // Register user *****************************
-    const registerUser = (email, password,location, history) =>{
+    const registerUser = (email,name, password,location, history) =>{
       setIsLoading(true)
-        createUserWithEmailAndPassword(auth,email,password)
+        createUserWithEmailAndPassword(auth,email,password,name)
         .then((userCredential) => {
           const destination = location?.state?.from || '/';
       history(destination, {replace: true});

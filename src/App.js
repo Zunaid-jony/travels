@@ -12,6 +12,8 @@ import Register from "./Components/Login/Register/Register";
 import Service from "./Components/Home/Service/Service";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import PrivetRoute from "./Components/Login/Login/privetRoute/PrivetRoute";
+import OrderList from './Dashboard/OrderList/OrderList';
+import AddService from './Dashboard/AddService/AddService';
 
 
 
@@ -34,6 +36,8 @@ function App() {
                 element={<Dashboard></Dashboard>}
             >
               <Route path="login" element={<Login></Login>}></Route>
+              <Route path="" element={<OrderList></OrderList>}></Route>
+              <Route path="addService" element={<AddService></AddService>}></Route>
        </Route>
 
 

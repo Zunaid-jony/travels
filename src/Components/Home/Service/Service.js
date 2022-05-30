@@ -3,10 +3,11 @@ import rel from '../../../imgs/train.png'
 import air from '../../../imgs/airport-icons .png'
 import car from '../../../imgs/car.png'
 import BIKE from '../../../imgs/bike.png'
-import { Box, Container, Grid } from '@mui/material';
+import { Alert, Box, Container, Grid } from '@mui/material';
 import Services from './Services';
+import { useState } from 'react';
 
-const Service = () => {
+
     const booking =[
         {
             id:1,
@@ -52,9 +53,14 @@ const Service = () => {
         },
 
     ]
+    const Service = () => {
+        // modal a success meassege dibo 
+
+        const [bookingSuccess, setBookingSuccess] = useState(false)
     return (
         <div>
             <h3>Service</h3>
+            {bookingSuccess && <Alert severity='success'>submit seccess</Alert>}
             <Box sx={{ flexGrow: 1 }}>
                 <Container>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -63,6 +69,7 @@ const Service = () => {
               
               key={booking.id}
               booking={booking}
+              setBookingSuccess={setBookingSuccess}
               ></Services>)
           }
         

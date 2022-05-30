@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import React from 'react';
 import ServiceModal from './ServicesModal';
 
-const Services = ({booking}) => {
+const Services = ({booking,setBookingSuccess}) => {
     const {id,name,image,description,price}= booking;
 
     const [open, setOpen] = React.useState(false);
@@ -46,6 +46,7 @@ const Services = ({booking}) => {
          booking={booking}
          open={open}
           handleCloseServicesModal={handleCloseServicesModal}
+          setBookingSuccess={setBookingSuccess}
           
           ></ServiceModal>
 

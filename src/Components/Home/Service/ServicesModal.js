@@ -6,6 +6,8 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardMedia, TextField } from '@mui/material';
+import useAuth from './../../../hooks/useAuth';
+import { useState } from 'react';
 
 
 const style = {
@@ -20,10 +22,46 @@ const style = {
   p: 4,
 };
 
-const ServiceModal = ({ booking,open,handleCloseServicesModal}) => {
+const ServiceModal = ({ booking,open,handleCloseServicesModal,setBookingSuccess}) => {
     const {name, image, id}= booking;
+    const {user} = useAuth();
+
+
+    // datapas sarver 
+
+const initialInfo = {serviceName: name, userName:user.userName, email: user.email, phone:''}
+const [bookingInfo, setBookingInfo] = useState(initialInfo);
+const handleOnBlur = e =>{
+  const field = e.target.name;
+  const value = e.target.value;
+  const newInfo = {...bookingInfo}
+  newInfo[field]= value;
+  console.log(newInfo);
+  setBookingInfo(newInfo);
+
+}
+
     const handleBookingSubmit = e =>{
-         alert('submit');
+        const bookApponenmet = {
+          ...bookingInfo,
+        }
+        //send to server
+        fetch('http://localhost:5000/services',{
+          method:'POST',
+          headers:{
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(bookApponenmet)
+          
+        })
+        .then(res =>res.json())
+        .then(data => {
+         if(data.insertedId){
+          setBookingSuccess(true)
+           
+         }
+        })
+     
          e.preventDefault();
          // close karar jonn ata call karlam   handleCloseServicesModal()
          handleCloseServicesModal();
@@ -53,13 +91,15 @@ const ServiceModal = ({ booking,open,handleCloseServicesModal}) => {
                     alt="green iguana"
           />
                     <Typography>
-
+                     <p style={{textAlign: 'center'}}> {name}</p>
                     </Typography>
                     <form onSubmit={handleBookingSubmit}>
-                     <TextField
+                 <TextField
                      disabled
                      sx={{width: '90%',m:1}}
                       id="outlined-size-small"
+                      name='serviceName'
+                      onBlur={handleOnBlur}
                       defaultValue={name}
                       size='small'
                     />
@@ -68,12 +108,17 @@ const ServiceModal = ({ booking,open,handleCloseServicesModal}) => {
                      sx={{width: '90%',m:1}}
                       id="outlined-size-small"
                       defaultValue="Your Name"
+                      onBlur={handleOnBlur}
+                      name='userName'
+
                       size='small'
                     />
                      <TextField
                     
                      sx={{width: '90%',m:1}}
                       id="outlined-size-small"
+                      name='phone'
+                      onBlur={handleOnBlur}
                       defaultValue='Your Phone number'
                       size='small'
                     />
@@ -81,6 +126,8 @@ const ServiceModal = ({ booking,open,handleCloseServicesModal}) => {
                     
                      sx={{width: '90%',m:1}}
                       id="outlined-size-small"
+                      name='email'
+                      onBlur={handleOnBlur}
                       defaultValue="Your Email"
                       size='small'
                     />

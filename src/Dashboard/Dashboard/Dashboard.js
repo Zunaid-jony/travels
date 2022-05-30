@@ -36,22 +36,23 @@ function Dashboard(props) {
      
       <Box className='text-area'>
       <List>
-          <Link style={{textDecoration: 'none', color:'white',textAlign: 'left'}} to='/'>Home</Link>
+          <Link style={{textDecoration: 'none', color:'white',textAlign: 'left',marginLeft:'24px'}} to='/'>Home</Link>
 
              <br></br>
 
 
-          <Link style={{textDecoration: 'none',color:'white'}} to='/dashboard/login'> {""} login</Link>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+          <Link style={{textDecoration: 'none',color:'white',marginLeft:'24px'}} to='/dashboard/'> {""} Order List</Link>
+          <br></br>
+          <br></br>
+          <Link style={{textDecoration: 'none',color:'white',marginLeft:'24px'}} to='/dashboard/addService'> {""} Add service</Link>
+          <br></br>
+          <br></br>
+          <Link style={{textDecoration: 'none',color:'white',marginLeft:'24px'}} to='/dashboard/login'> {""} Make Admin</Link>
+          <br></br>
+          <br></br>
+          
+          <Link style={{textDecoration: 'none',color:'white',marginLeft:'24px'}} to='/dashboard/login'> {""} Manage Service </Link>
+       
       </List>
       </Box>
     </div>
@@ -60,7 +61,7 @@ function Dashboard(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box  sx={{ display: 'flex'}}>
+    <Box  className='body' sx={{ display: 'flex'}}>
       <CssBaseline />
       <AppBar 
         position="fixed"
@@ -80,9 +81,6 @@ function Dashboard(props) {
                     <MenuIcon />
                 </IconButton>
                 <Typography  variant="h6" noWrap component="div">
-
-                    
-
                     
                     Travel
                 </Typography>
@@ -124,18 +122,10 @@ function Dashboard(props) {
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <Toolbar />
+        
 
 
 
-
-
-
-
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          
-        </Typography>
         <Outlet></Outlet>
         
       </Box>

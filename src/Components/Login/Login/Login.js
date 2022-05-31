@@ -23,13 +23,13 @@ const Login = () => {
    newLoginData[field]=value;
    
    setLoginData(newLoginData);
-   loginUser(loginData.email, loginData.password)
+   loginUser(loginData.email, loginData.password,location,history)
 
   }
  
   const handleLoginSubmit = e =>{
     loginUser(loginData.email, loginData.password,location,history);
-    // alert('hell')
+    //alert('hell')
     e.preventDefault()
       
   }

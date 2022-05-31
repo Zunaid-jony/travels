@@ -6,6 +6,9 @@ import BIKE from '../../../imgs/bike.png'
 import { Alert, Box, Container, Grid } from '@mui/material';
 import Services from './Services';
 import { useState } from 'react';
+import AddService from './../../../Dashboard/AddService/AddService';
+import AddServices from './../../../Dashboard/addServices/AddServices';
+import Footers from '../Home/Fooder/Fooders';
 
 
     const booking =[
@@ -70,8 +73,11 @@ import { useState } from 'react';
               key={booking.id}
               booking={booking}
               setBookingSuccess={setBookingSuccess}
+              
               ></Services>)
           }
+          <AddServices></AddServices>
+          <Footers style={{width:'100%'}}></Footers>
         
       </Grid>
                 </Container>

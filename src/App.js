@@ -14,6 +14,7 @@ import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import PrivetRoute from "./Components/Login/Login/privetRoute/PrivetRoute";
 import OrderList from './Dashboard/OrderList/OrderList';
 import AddService from './Dashboard/AddService/AddService';
+import AddServices from './Dashboard/addServices/AddServices';
 
 
 
@@ -29,6 +30,7 @@ function App() {
       <Route path="/service" element={<PrivetRoute><Service></Service></PrivetRoute>}></Route>
       <Route path="/home" element={<Home></Home>}></Route>
       <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+      <Route path="/contact" element={<AddServices></AddServices>}></Route>
       <Route path="/login" element={<Login></Login>}></Route>
       
        {/* dashboard a route goal akahne */}

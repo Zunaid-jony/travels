@@ -47,11 +47,11 @@ function Dashboard(props) {
           <Link style={{textDecoration: 'none',color:'white',marginLeft:'24px'}} to='/dashboard/addService'> {""} Add service</Link>
           <br></br>
           <br></br>
-          <Link style={{textDecoration: 'none',color:'white',marginLeft:'24px'}} to='/dashboard/login'> {""} Make Admin</Link>
+          <Link style={{textDecoration: 'none',color:'white',marginLeft:'24px'}} to='/dashboard/'> {""} Make Admin</Link>
           <br></br>
           <br></br>
           
-          <Link style={{textDecoration: 'none',color:'white',marginLeft:'24px'}} to='/dashboard/login'> {""} Manage Service </Link>
+          <Link style={{textDecoration: 'none',color:'white',marginLeft:'24px'}} to='/dashboard/'> {""} Manage Service </Link>
        
       </List>
       </Box>

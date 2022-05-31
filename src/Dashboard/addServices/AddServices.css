@@ -1,0 +1,8 @@
+img{
+    width: 70px;
+    
+
+}
+.hover :hover{
+    background-color: rgb(217, 209, 224);
+}
